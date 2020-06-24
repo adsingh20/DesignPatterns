@@ -1,20 +1,26 @@
 package prototype;
 
-public class Book {
-    private int bookId;
+public abstract class Book {
+    private int id;
     private String bookName;
+    private String author;
 
-    public Book(int bookId, String bookName) {
-        this.bookId = bookId;
+    public Book(int id, String bookName) {
+        this.id = id;
         this.bookName = bookName;
     }
 
-    public int getBookId() {
-        return bookId;
+    public Book(Book literature) {
+        this.id = literature.id;
+        this.bookName = literature.bookName;
     }
 
-    public void setBookId(int bookId) {
-        this.bookId = bookId;
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getBookName() {
@@ -25,11 +31,22 @@ public class Book {
         this.bookName = bookName;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public abstract Book clone();
+
     @Override
     public String toString() {
-        return "Book{" +
-                "bookId=" + bookId +
+        return "Literature{" +
+                "id=" + id +
                 ", bookName='" + bookName + '\'' +
+                ", author='" + author + '\'' +
                 '}';
     }
 }

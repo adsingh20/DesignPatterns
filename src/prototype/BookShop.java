@@ -23,9 +23,12 @@ public class BookShop implements Cloneable {
         this.books = books;
     }
 
-    public void loadBooks() {
+    public void loadEBooks() {
+        ArrayList<String> platforms = new ArrayList<>();
+        platforms.add("Kindle");
+        platforms.add("iBook");
         for (int i = 0; i < 10; i++) {
-            books.add(new Book(i, "Harry Potter".concat(String.valueOf(i))));
+            books.add(new EBook(i, "Harry Potter".concat(String.valueOf(i)), platforms));
         }
     }
 
